@@ -1,0 +1,80 @@
+mkdisk -size=10000 -unit=K
+mkdisk -size=10000 -unit=K
+mkdisk -size=10000 -unit=K
+mkdisk -size=10000 -unit=K
+rmdisk -driveletter=D
+fdisk -type=E -driveletter=A -unit=K -name=velaPartition -size=1000
+fdisk -type=P -driveletter=A -unit=K -name=par1 -size=5000
+fdisk -type=p -driveletter=A -unit=K -name=par2 -size=1000
+fdisk -type=P -driveletter=A -unit=K -name=par3 -size=1000
+fdisk -driveletter=A -name=par2 -size=300 -delete=full -unit=M
+fdisk -driveletter=A -name=par1 -size=300 -add=200
+mount -driveletter=a -name=par1 
+mount -driveletter=a -name=par3 
+
+unmount -id=A288
+
+rep -id=A188 -path=/home/david/reportes/MBRPE.png -name=mbr
+rep -id=A188 -path=/home/david/reportes/disk.png -name=disk
+
+mkfs -type=full -id=A188 -fs=3fs
+
+login -user=root -pass=123 -id=A188
+
+mkgrp -name=usuarios
+mkgrp -name=adm
+mkgrp -name=developers
+
+#ERROR YA EXISTE EL GRUPO
+mkgrp -name=usuarios
+
+cat -file1=/users.txt
+
+mkusr -user="user1" -pass=abc -grp=usuarios
+mkusr -user="admin1" -pass=admin123 -grp=adm
+mkusr -user="dev1" -pass=dev123 -grp=developersS
+
+cat -file1=/users.txt
+
+mkdir -path=/docs
+mkdir -r -path=/files
+mkdir -path=/test
+
+mkdir -r -path=/test/basic/folder
+mkdir -r -path=/docs/simple/path
+mkdir -r -path=/home/archivos/user/docs
+
+logout
+login -user=user1 -pass=abc -id=A188
+logout 
+login -user=root -pass=123 -id=A188 
+
+mkfile -path=/docs/small1.txt -size=32
+mkfile -path=/docs/small2.txt -size=64
+mkfile -path=/files/medium.txt -size=200
+
+mkfile -path=/test/file_14_blocks.txt -size=896
+
+mkfile -path=/test/file_15_blocks.txt -size=960
+
+#ERROR NO EXISTE RUTA
+mkfile -path="/nonexistent/file.txt"
+
+#ERROR NEGATIVO
+mkfile -path="/test/error.txt" -size=-100
+
+cat -file1=/docs/small1.txt
+cat -file1=/docs/small2.txt
+cat -file1=/files/medium.txt
+cat -file1=/home/archivos/user/docs/Tarea3.txt
+
+rep -id=A188 -path=/home/david/reportes/inode_test.png -name=inode
+rep -id=A188 -path=/home/david/reportes/block_test.png -name=block
+rep -id=A188 -path=/home/david/reportes/sb_test.png -name=sb
+rep -id=A188 -path=/home/david/reportes/bm_inode_test.txt -name=bm_inode
+rep -id=A188 -path=/home/david/reportes/bm_block_test.txt -name=bm_block
+
+find -path=/ -name=*
+
+find -path=/ -name=?.*
+logout
