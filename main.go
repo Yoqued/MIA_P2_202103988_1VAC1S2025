@@ -466,6 +466,5 @@ func main() {
 	http.HandleFunc("/file-select", withCORS(selectPartitionHandler))
 	http.HandleFunc("/content-select", withCORS(selectContentHandler))
 	fmt.Println("Servidor iniciado en http://localhost:8080")
-	InicializarDisks()
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
