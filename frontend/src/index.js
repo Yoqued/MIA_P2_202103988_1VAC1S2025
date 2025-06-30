@@ -18,7 +18,7 @@ function Index() {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('http://localhost:8080/logout', {
+            const response = await fetch('http://3.142.172.171:8080/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

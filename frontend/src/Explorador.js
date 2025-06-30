@@ -17,7 +17,7 @@ export const Explorador = ({ onBackToMenu }) => {
     // Función para obtener los discos del backend
     const fetchDiscos = async () => {
         try {
-            const response = await fetch('http://localhost:8080/discos', {
+            const response = await fetch('http://3.142.172.171:8080/discos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export const Explorador = ({ onBackToMenu }) => {
     const handleDiscoClick = async (disco) => {
         setError('');
         try {
-            const response = await fetch(`http://localhost:8080/disco-select?path=${encodeURIComponent(disco.Path)}`, {
+            const response = await fetch(`http://3.142.172.171:8080/disco-select?path=${encodeURIComponent(disco.Path)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export const Explorador = ({ onBackToMenu }) => {
     const handlePartitionClick = async (particion, disco) => {
         setError('');
         try {
-            const response = await fetch(`http://localhost:8080/partition-select?name=${encodeURIComponent(particion.Name)}
+            const response = await fetch(`http://3.142.172.171:8080/partition-select?name=${encodeURIComponent(particion.Name)}
             &start=${encodeURIComponent(particion.Start)}&path=${encodeURIComponent(disco.Path)}&fileparts=${encodeURIComponent(currentPath)}`, {
                 method: 'GET',
                 headers: {
@@ -98,7 +98,7 @@ export const Explorador = ({ onBackToMenu }) => {
         if (type === 'carpeta') {
             // Si es una carpeta, cargar los archivos de esa carpeta
             try {
-                const response = await fetch(`http://localhost:8080/file-select?start=${encodeURIComponent(particion.Start)}
+                const response = await fetch(`http://3.142.172.171:8080/file-select?start=${encodeURIComponent(particion.Start)}
                 &path=${encodeURIComponent(disco.Path)}&fileparts=${encodeURIComponent(newPath)}`, {
                     method: 'GET',
                     headers: {
@@ -126,7 +126,7 @@ export const Explorador = ({ onBackToMenu }) => {
         const newPath = currentPath + name;  // Calcula la nueva ruta antes de actualizar el estado
 
         try {
-            const response = await fetch(`http://localhost:8080/content-select?start=${encodeURIComponent(particion.Start)}
+            const response = await fetch(`http://3.142.172.171:8080/content-select?start=${encodeURIComponent(particion.Start)}
             &path=${encodeURIComponent(disco.Path)}&fileparts=${encodeURIComponent(newPath)}`, {
                 method: 'GET',
                 headers: {
@@ -158,7 +158,7 @@ export const Explorador = ({ onBackToMenu }) => {
 
             // Realiza la solicitud de nuevo para obtener los archivos de la carpeta superior
             try {
-                const response = await fetch(`http://localhost:8080/file-select?start=${encodeURIComponent(selectedPartition.Start)}
+                const response = await fetch(`http://3.142.172.171:8080/file-select?start=${encodeURIComponent(selectedPartition.Start)}
                 &path=${encodeURIComponent(selectedDisco.Path)}&fileparts=${encodeURIComponent(newPath)}`, {
                     method: 'GET',
                     headers: {

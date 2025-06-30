@@ -18,7 +18,7 @@ export const Consola = ({ onGoToLogin}) => {
 
     const handleExecuteCommands = async () => {
         try {
-            const response = await fetch('http://localhost:8080/execute', {
+            const response = await fetch('http://3.142.172.171:8080/execute', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
