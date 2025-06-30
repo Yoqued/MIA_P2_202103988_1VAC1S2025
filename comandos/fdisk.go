@@ -94,7 +94,7 @@ func ParseFdisk(tokens []string) (*objs.PARTICION, []string, error) {
 	}
 
 	// Construir la ruta del archivo basado en la letra del disco
-	path := filepath.Join("/home/david/MIA/P1/", fmt.Sprintf("%s.dsk", driveLetter))
+	path := filepath.Join("./MIA/P1/", fmt.Sprintf("%s.dsk", driveLetter))
 
 	if delete != "" {
 		name := string(bytes.Trim(cmd.Name[:], "\x00"))

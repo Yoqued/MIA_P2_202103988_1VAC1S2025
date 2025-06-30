@@ -42,7 +42,7 @@ func ParseMount(tokens []string) (*MOUNT, []string, error) {
 				return nil, tokens[cont:], errors.New("la letra del disco debe ser un carácter de la A-Z")
 			}
 			driveLetter := strings.ToUpper(value)
-			cmd.path = filepath.Join("/home/david/MIA/P1/", fmt.Sprintf("%s.dsk", driveLetter))
+			cmd.path = filepath.Join("./MIA/P1/", fmt.Sprintf("%s.dsk", driveLetter))
 			currentedriveletter = driveLetter
 		case "-name":
 			cmd.name = value

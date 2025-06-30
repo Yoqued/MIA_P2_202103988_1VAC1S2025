@@ -20,7 +20,7 @@ func ParseMkdisk(tokens []string) (*objs.DISK, []string, error) {
 	cmd := &objs.DISK{}
 	var contador, Size int
 	var unit string
-	basePath := "/home/david/MIA/P1/" // Ruta base donde se crearán los discos
+	basePath := "./MIA/P1/" // Ruta base donde se crearán los discos
 
 	fmt.Println(tokens)
 	for _, token := range tokens {

@@ -45,7 +45,7 @@ func ParseRmdisk(tokens []string) ([]string, error) {
 	}
 
 	// Construir la ruta completa del archivo
-	path := filepath.Join("/home/david/MIA/P1/", fmt.Sprintf("%s.dsk", driveLetter))
+	path := filepath.Join("./MIA/P1/", fmt.Sprintf("%s.dsk", driveLetter))
 
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		fmt.Printf("El disco con letra %s no existe en la ruta %s.\n", driveLetter, path)
